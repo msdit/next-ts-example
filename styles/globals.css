@@ -14,3 +14,9 @@ a {
 * {
   box-sizing: border-box;
 }
+
+:root {
+  --primary: #1e90ff;
+  --secondary: #e91e63;
+  --disable: #9e9e9e;
+}

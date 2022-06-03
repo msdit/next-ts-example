@@ -1,0 +1,66 @@
+.btn-base {
+  border-radius: 5px;
+  height: 36px;
+  padding: 0 20px;
+}
+
+.btn-base:hover {
+  opacity: 0.65;
+  cursor: pointer;
+}
+
+.btn-base:disabled,
+.btn-base[disabled] {
+  cursor: not-allowed;
+}
+
+.btn-base:disabled:hover,
+.btn-base[disabled]:hover {
+  opacity: 1;
+}
+
+.btn-bordered-primary,
+.btn-bordered-secondary {
+  background-color: transparent;
+}
+
+.btn-bordered-primary {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-bordered-secondary {
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+}
+
+.btn-bordered-primary:disabled,
+.btn-bordered-primary[disabled],
+.btn-bordered-secondary:disabled,
+.btn-bordered-secondary[disabled] {
+  border: 1px solid var(--disable);
+  color: var(--disable);
+}
+
+.btn-filled-primary,
+.btn-filled-secondary {
+  color: #fff;
+}
+
+.btn-filled-primary {
+  border: 1px solid var(--primary);
+  background-color: var(--primary);
+}
+
+.btn-filled-secondary {
+  border: 1px solid var(--secondary);
+  background-color: var(--secondary);
+}
+
+.btn-filled-primary:disabled,
+.btn-filled-primary[disabled],
+.btn-filled-secondary:disabled,
+.btn-filled-secondary[disabled] {
+  border: 1px solid var(--disable);
+  background-color: var(--disable);
+}

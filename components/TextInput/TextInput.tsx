@@ -1,7 +1,7 @@
-import {FC, InputHTMLAttributes} from 'react';
+import {FC, ButtonHTMLAttributes} from 'react';
 import { createElement } from 'react';
 
-interface ITextInputProps extends Omit<InputHTMLAttributes<Element>, 'type'> {
+interface ITextInputProps extends Omit<ButtonHTMLAttributes<Element>, 'type'> {
 
 }
 

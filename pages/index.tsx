@@ -6,6 +6,7 @@ import styles from "../styles/Home.module.css";
 // import Title, { componentEnum } from "../components/Title";
 import Title from "../components/Title";
 import TextInput from "../components/TextInput";
+import Button from "../components/Button";
 
 const Home: NextPage = () => {
   let x: string = "0";
@@ -201,8 +202,25 @@ const Home: NextPage = () => {
         <Title title="This is title!" />
         <TextInput
           value={inputValue}
-          onChange={(e:any) => setInputValue(e.target.value)}
+          onChange={(e: any) => setInputValue(e.target.value)}
         />
+        <Button className={styles.btn}>filled primary</Button>
+        <Button className={styles.btn} variant="bordered">
+          bordered primary
+        </Button>
+        <Button className={styles.btn} disabled>
+          filled (disabled)
+        </Button>
+
+        <Button className={styles.btn} color="secondary">
+          filled secondary
+        </Button>
+        <Button className={styles.btn} color="secondary" variant="bordered">
+          bordered secondary
+        </Button>
+        <Button className={styles.btn} variant="bordered" disabled title="asdf">
+          bordered (disabled)
+        </Button>
       </main>
     </div>
   );
