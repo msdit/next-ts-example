@@ -1,9 +1,193 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import styles from "../styles/Home.module.css";
+// import Title, { componentEnum } from "../components/Title";
+import Title from "../components/Title";
+import TextInput from "../components/TextInput";
 
 const Home: NextPage = () => {
+  let x: string = "0";
+  x = "adasd";
+  x = String(5);
+
+  let y: number = 6;
+  y = Number("4");
+
+  let z: boolean = true;
+  z = Boolean(0); // false
+
+  let a: null = null;
+  let b: undefined;
+  let c: never;
+
+  let d: any = "szf";
+  d = 5;
+  d = null;
+
+  let e: object = {
+    a: 3,
+    b: "2",
+    c: () => true,
+  };
+  e = [];
+
+  type objectType = {
+    a: number;
+    b: string;
+    c?: boolean;
+    d?: never;
+    e: number | string;
+  };
+
+  let f: objectType = {
+    a: 6,
+    b: "asdf",
+    // c:true,
+    // e:'asdf',
+    e: 34,
+  };
+
+  type conditionalObject =
+    | {
+        a: number;
+        b: string;
+      }
+    | {
+        a: string;
+        // b?: never
+      };
+
+  let g: conditionalObject = {
+    a: 12,
+    b: "asdf",
+  };
+  let h: conditionalObject = {
+    a: "asdf",
+  };
+
+  type mergeObjects = conditionalObject & {
+    c: number;
+  };
+  let i: mergeObjects = {
+    a: "sdaAs",
+    c: 1234,
+  };
+  let j: mergeObjects = {
+    a: 12,
+    b: "asdf",
+    c: 1234,
+  };
+
+  let k: {
+    a: string;
+  } = {
+    a: "asdf",
+  };
+
+  let l: { [key: string]: number } = {
+    a: 2,
+    asdfasdf: 4145,
+  };
+  // let m: {[key:number]: mergeObjects} = [
+  //   { a: "adf", c: 2134 },
+  //   { a: 1234, b: "asdf", c: 12342345 },
+  // ]
+
+  let m: string[] = ["a", "b", "c"];
+  let n: mergeObjects[] = [
+    { a: "adf", c: 2134 },
+    { a: 1234, b: "asdf", c: 12342345 },
+  ];
+
+  let o: [string, number, string] = ["a", 2, "a"];
+
+  let p: "w" | "x" | "z" = "w";
+
+  interface q extends objectType {
+    f: boolean;
+  }
+
+  let qq: q = {
+    a: 6,
+    b: "asdf",
+    e: "123",
+    f: false,
+  };
+
+  interface qWithouta extends Omit<objectType, "a"> {
+    a: boolean;
+  }
+  let qqq: qWithouta = {
+    b: "asdf",
+    e: "123",
+    a: false,
+  };
+
+  function func1(input: number): number {
+    return input * 2;
+  }
+
+  function func2(input: number): undefined {
+    return;
+  }
+
+  function func3(input: number): void {}
+
+  const arrowFunc: (input: number) => number = (a) => a * 2;
+  console.log(arrowFunc(5));
+
+  enum colorEnum {
+    RED = "red",
+    BLUE = "green",
+    GREEN = "blue",
+  }
+  let varient: colorEnum = colorEnum.BLUE;
+  console.log(colorEnum.GREEN, colorEnum);
+
+  enum categoriesEnum {
+    DIGITAL,
+    ACCESSORY,
+    FASHION,
+    FOOD,
+    ART,
+    CULTURE,
+  }
+  type activeType = "active" | "notActive";
+
+  type productType = {
+    name: string;
+    price: number;
+    description?: string;
+    type: activeType;
+    category: categoriesEnum;
+  };
+
+  let productsList: productType[] = [
+    {
+      name: "laptop",
+      price: 1200,
+      type: "active",
+      category: categoriesEnum.DIGITAL,
+    },
+  ];
+
+  type withInputType<T> = {
+    a: T;
+  };
+
+  let r1: withInputType<number> = { a: 1 };
+  let r2: withInputType<string> = { a: "1" };
+
+  const [first, setfirst] = useState<number>();
+
+  useEffect(() => {
+    setfirst(5);
+  }, []);
+
+  const [inputValue, setInputValue] = useState("");
+
   return (
     <div className={styles.container}>
       <Head>
@@ -13,60 +197,15 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        {/* <Title title="This is title!" component={componentEnum.P} /> */}
+        <Title title="This is title!" />
+        <TextInput
+          value={inputValue}
+          onChange={(e:any) => setInputValue(e.target.value)}
+        />
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
